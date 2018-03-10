@@ -4,8 +4,8 @@ Synchronize bash's aliases with fish's aliases.
 
 ## Usage
 
-Add the following command to the `~/.config/fish/config.fish`.
-This allows you to sync the alias set via ~/.bash\_profile to ~/.config/fish/b2f\_aliases.fish and load it into fish.
+Add the following command to the `~/.config/fish/config.fish`.  
+This allows you to sync the alias set via `~/.bash\profile` to `~/.config/fish/b2f_aliases.fish` and load it into fish.
 
 ```fish
 bash /path/to/Bash2FishAliasesSync/aliases_sync.bash; and source ~/.config/fish/b2f_aliases.fish
@@ -13,7 +13,7 @@ bash /path/to/Bash2FishAliasesSync/aliases_sync.bash; and source ~/.config/fish/
 
 ### Option
 
-If you want to change will load path of .bash\_profile, set the following variable (`_B2F_BASH_PROFILE`) with bash:
+If you want to change will load path of `.bash_profile`, set the following variable (`_B2F_BASH_PROFILE`) with bash:
 
 ```fish
 _B2F_BASH_PROFILE=/path/to/.bash_profile bash /path/to/Bash2FishAliasesSync/aliases_sync.bash; and source ~/.config/fish/b2f_aliases.fish
