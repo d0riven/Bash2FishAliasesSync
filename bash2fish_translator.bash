@@ -2,11 +2,6 @@
 
 set -e
 
-aliases_file="$HOME/.config/fish/b2f_aliases.fish"
-if [ ! -z "${_B2F_ALIASES_FILE}" ]; then
-  aliases_file="${_B2F_ALIASES_FILE}"
-fi
-
 function trans() {
   echo "$1" | grep 'alias' \
     | perl -pe 's/^(.+)?alias +(.+)$/alias \2/g' \
@@ -21,12 +16,13 @@ function trans() {
 }
 
 if [ -p /dev/stdin ]; then
-  trans "$(cat -)" > $aliases_file
+  trans "$(cat -)"
 else
-  bash_profile_path="${HOME}/.bash_profile"
-  if [ ! -z "${_B2F_BASH_PROFILE}" ]; then
-    bash_profile_path="${_B2F_BASH_PROFILE}"
+  if [ ! -f "${_B2F_BASHRC}" ]; then
+    echo "Not exists translate target. path: ${_B2F_BASHRC}" >&2
+    exit 1
   fi
-  . $bash_profile_path
-  trans "$(alias)" > $aliases_file
+  bashrc_path="${_B2F_BASHRC}"
+  . $bashrc_path
+  trans "$(alias)"
 fi
