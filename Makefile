@@ -20,4 +20,4 @@ test: $(test_result)
 
 .PHONY: $(test_result)
 $(test_result): bash2fish_translator.bash $(test_input)
-	_B2F_BASHRC=$(test_input) bash bash2fish_translator.bash > $@
+	cat $(test_input) > bash bash2fish_translator.bash > $@
