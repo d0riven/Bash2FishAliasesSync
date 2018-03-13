@@ -1,5 +1,7 @@
 # Bash2FishAliasesSync
 
+[![Build Status](https://travis-ci.org/d0riven/Bash2FishAliasesSync.svg?branch=master)](https://travis-ci.org/d0riven/Bash2FishAliasesSync)
+
 Translation and synchronization of bash alias to fish alias.
 
 ## Usage
