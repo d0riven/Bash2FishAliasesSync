@@ -1,6 +1,6 @@
 # Bash2FishAliasesSync
 
-Synchronize bash's aliases with fish's aliases.
+Translation and synchronization of bash alias to fish alias.
 
 ## Usage
 

@@ -16,8 +16,8 @@ test_result := $(TEST_DIR)/result.txt
 test_expected := $(TEST_DIR)/expected.txt
 
 test: $(test_result)
-	diff $(test_expected) $(test_result)
+	diff -u $(test_expected) $(test_result)
 
 .PHONY: $(test_result)
 $(test_result): bash2fish_translator.bash $(test_input)
-	cat $(test_input) > bash bash2fish_translator.bash > $@
+	cat $(test_input) | bash bash2fish_translator.bash > $@
