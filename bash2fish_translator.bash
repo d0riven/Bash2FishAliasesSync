@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -e
+shopt -s expand_aliases
 
 # not supported below:
 # -  Foo=foo echo $foo => env Foo=foo echo $foo
@@ -16,6 +17,7 @@ function trans() {
     | perl -pe 's/do *(.+); *done/\1; end/g' \
     | perl -pe 's/`(.*?)`/(\1)/g' \
     | perl -pe 's/\$\(/(/g' \
+    | perl -pe "s/\'\\\'\'/\\\'/g" \
     | perl -pe 's/<\((.*?)\)/(\1 \\\\| psub)/g' \
     | perl -pe 's/ ! / not /g'
 }
@@ -28,6 +30,6 @@ else
     exit 1
   fi
   bashrc_path="${_B2F_BASHRC}"
-  . $bashrc_path
+  source $bashrc_path
   trans "$(alias)"
 fi
