@@ -6,6 +6,7 @@ show_fixture:
 	@echo "_B2F_BASHRC: $(_B2F_BASHRC)"
 
 sync: $(_B2F_ALIASES_FILE)
+	@echo > /dev/null
 
 $(_B2F_ALIASES_FILE): $(_B2F_BASHRC)
 	_B2F_BASHRC=$(_B2F_BASHRC) bash bash2fish_translator.bash > $@
